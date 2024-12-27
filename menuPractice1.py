@@ -136,12 +136,33 @@ def printingSumNumpyArrayRange():
     print ("Answer #1: ", lib.sumRange([-2, 0, 3, -5, 2, -1],0,2))
     print ("Answer #2: ", lib.sumRange([-2, 0, 3, -5, 2, -1],2,5))
     print ("Answer #3: ", lib.sumRange([-2, 0, 3, -5, 2, -1],0,5))
+
+def printingFindAllNumsDisappeared():
+    lib = ListBundle01()
+    print (" [ 448. Find All Numbers Disappeared in an Array ]")
+    print ("Answer #1: type:1 ",  lib.findDisappearedNumbers_1([4,3,2,7,8,2,3,1]))
+    print ("Answer #1: type:2 ",  lib.findDisappearedNumbers_2([4,3,2,7,8,2,3,1]))
+
+def printingMaxNumberBallons():
+    lib = ListBundle01()    
+    print (" [ 1189. Maximum Number of Ballons ]")
+    print ("Answer #1: ",  lib.maxNumberOfBalloons_2("nlaebolko"))
+    print ("Answer #2:",  lib.maxNumberOfBalloons_2("loonbalxballpoon"))
+    print ("Answer #3:",  lib.maxNumberOfBalloons_2("leetcode"))
+
+def printingWordPattern():
+    lib = ListBundle01()    
+    print (" [ 290. Word Pattern ]")
+    print ("Answer #1: ",  lib.wordPattern(pattern = "abba", s = "dog cat cat dog"))
+    print ("Answer #2: ",  lib.wordPattern(pattern = "abba", s = "dog cat cat fish"))
+    print ("Answer #3: ",  lib.wordPattern(pattern = "aaaa", s = "dog cat cat dog"))
+
     
 
 def menu():
     print("Menu Practice Python No. 1")
-    print("1. Two Sum (LC#1)")
-    print("2. Contains Duplicate (LC#217)")
+    print("1. Two Sum (LC#1)                         21. Maximum Number of Ballons (LC#1189)")
+    print("2. Contains Duplicate (LC#217)            22. Word Patten (LC#290)")
     print("3. Valid Anagram (LC#242)")
     print("4. Group Anagram (LC#49)")
     print("5. Replace Elements (LC#1299)")
@@ -159,6 +180,7 @@ def menu():
     print("17. Next Greater Element I (LC#496)")
     print("18. Find Pivot Index (LC#724)")
     print("19. Sum Numpy Array Range (LC#303)")
+    print("20. Find All Numbers Disappeared (LC#448)")
     opc = int(input("Enter Option? "))
     match opc:
         case 1: printingSumTwo()
@@ -180,6 +202,9 @@ def menu():
         case 17: printingNextGreaterElement()
         case 18: printingFindPivotIndex()
         case 19: printingSumNumpyArrayRange()
+        case 20: printingFindAllNumsDisappeared()
+        case 21: printingMaxNumberBallons()
+        case 22: printingWordPattern()
         case _: print("Error, option not recognized")
 
 menu()

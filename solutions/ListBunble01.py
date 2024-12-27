@@ -272,3 +272,87 @@ class ListBundle01:
             prefixsum.append(prefixsum[-1]+num)
 
         return prefixsum[right+1]-prefixsum[left]
+
+
+    def findDisappearedNumbers_1(self, nums: List[int]) -> List[int]:
+        L = len(nums)
+        dm = { i:0 for i in range(1,L+1) }
+        for n in nums:
+            dm[n] = dm[n] + 1
+        return [n for n,cnt in dm.items() if cnt==0]
+    
+    def findDisappearedNumbers_2(self, nums: List[int]) -> List[int]:
+        L = len(nums)
+        lm = [False]*(L)
+        for n in nums:
+            lm[n-1]=True
+        return [i+1 for i,b in enumerate(lm) if not b]
+
+    def maxNumberOfBalloons_1(self, text: str) -> int:
+        lmemo = []
+        for ch in text:
+            if ch not in "balloon": continue
+            located = False
+            for lm in lmemo:
+                if len(lm)==0: continue
+                if ch in lm:
+                    lm.remove(ch)
+                    located = True
+                    break
+            if not located:
+               nb = [c for c in "balloon"]
+               nb.remove(ch)
+               lmemo.append(nb) 
+        ans = 0
+        for lm in lmemo:
+            if len(lm)==0: 
+                ans+=1
+        return ans           
+
+    def maxNumberOfBalloons_2(self, text: str) -> int:
+        lmemo = []
+        for ch in text:
+            if ch not in "balloon": continue
+            located = False
+            for i in range (len(lmemo)):
+                if len(lmemo[i])==0: continue
+                if lmemo[i].find(ch)!=-1:
+                    lmemo[i] = lmemo[i].replace(ch,"",1)
+                    located = True
+                    break
+            if not located:
+               nb = "balloon"
+               nb = nb.replace(ch,"",1)
+               lmemo.append(nb[:]) 
+        ans = 0
+        for lm in lmemo:
+            if lm=="": 
+                ans+=1
+        return ans      
+    
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        dpattern = {}
+        dword = {}
+        counter = 0
+        for c in pattern:
+            if c not in dpattern:
+                dpattern[c]=counter
+                counter += 1
+
+        counter = 0
+        lwords = s.split()
+        for word in lwords:
+            if word not in dword:
+                dword[word]=counter
+                counter += 1
+
+        if len(pattern)!=len(lwords): return False
+
+        for i in range (len(pattern)):
+            ch = pattern[i]
+            word = lwords[i]
+            pos1 = dpattern[ch]
+            pos2 = dword[word]
+            if pos1!=pos2: return False
+
+        return True   
