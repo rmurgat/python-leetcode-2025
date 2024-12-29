@@ -1,5 +1,7 @@
 from solutions.ListBunble01 import *
 from solutions.StringBundle01 import *
+from solutions.MyHashSet import *
+from solutions.MyHashMap import *
 
 def printingSumTwo():
     lib = ListBundle01()
@@ -157,30 +159,52 @@ def printingWordPattern():
     print ("Answer #2: ",  lib.wordPattern(pattern = "abba", s = "dog cat cat fish"))
     print ("Answer #3: ",  lib.wordPattern(pattern = "aaaa", s = "dog cat cat dog"))
 
-    
+def printingHashSet():
+    print (" [ 705. Design HashSet ]")
+    myHashSet = MyHashSet();
+    myHashSet.add(1)        # set = [1]
+    myHashSet.add(2)        # set = [1, 2]
+    myHashSet.contains(1)   # return True
+    myHashSet.contains(3)   # return False, (not found)
+    myHashSet.add(2)        # set = [1, 2]
+    myHashSet.contains(2)   # return True
+    myHashSet.remove(2)     # set = [1]
+    myHashSet.contains(2)   # return False, (already removed)
+
+def printingHashMap():
+    print (" [ 705. Design HashMap ]")
+    myHashMap = MyHashMap();
+    myHashMap.put(1, 1)     # The map is now [[1,1]]
+    myHashMap.put(2, 2)     # The map is now [[1,1], [2,2]]
+    myHashMap.get(1)        # return 1, The map is now [[1,1], [2,2]]
+    myHashMap.get(3)        # return -1 (i.e., not found), The map is now [[1,1], [2,2]]
+    myHashMap.put(2, 1)     # The map is now [[1,1], [2,1]] (i.e., update the existing value)
+    myHashMap.get(2)        # return 1, The map is now [[1,1], [2,1]]
+    myHashMap.remove(2)     # remove the mapping for 2, The map is now [[1,1]]
+    myHashMap.get(2)        # return -1 (i.e., not found), The map is now [[1,1]]    
 
 def menu():
     print("Menu Practice Python No. 1")
     print("1. Two Sum (LC#1)                         21. Maximum Number of Ballons (LC#1189)")
     print("2. Contains Duplicate (LC#217)            22. Word Patten (LC#290)")
-    print("3. Valid Anagram (LC#242)")
-    print("4. Group Anagram (LC#49)")
-    print("5. Replace Elements (LC#1299)")
-    print("6. Is Sequence (LC#392)")
-    print("7. Length of Last Word (LC#58)")
-    print("8. Longest Common prefix (lc#14)")
-    print("9. Top K Frequent Element (LC#347)")
-    print("10. Encode and Decode String (neetcode)")
-    print("11. Product of Array Except Self (LC#238)")
-    print("12. Pascal's Triangle (LC#118)")
-    print("13. Unique Email Addresses (LC#929)")
-    print("14. Isomorphic String (LC#205)")
-    print("15. Can Place Flowers (LC#605)")
-    print("16. Majority Element (LC#169)")
-    print("17. Next Greater Element I (LC#496)")
-    print("18. Find Pivot Index (LC#724)")
-    print("19. Sum Numpy Array Range (LC#303)")
-    print("20. Find All Numbers Disappeared (LC#448)")
+    print("3. Valid Anagram (LC#242)                 23. Design HashSet (LC#705)")
+    print("4. Group Anagram (LC#49)                  24. Design HashMap (LC#706)")
+    print("5. Replace Elements (LC#1299)             25. ")
+    print("6. Is Sequence (LC#392)                   26. ")
+    print("7. Length of Last Word (LC#58)            27. ")
+    print("8. Longest Common prefix (lc#14)          28. ")
+    print("9. Top K Frequent Element (LC#347)        29. ")
+    print("10. Encode and Decode String (neetcode)   30. ")
+    print("11. Product of Array Except Self (LC#238) 31. ")
+    print("12. Pascal's Triangle (LC#118)            32. ")
+    print("13. Unique Email Addresses (LC#929)       33. ")
+    print("14. Isomorphic String (LC#205)            34. ")
+    print("15. Can Place Flowers (LC#605)            35. ")
+    print("16. Majority Element (LC#169)             36. ")
+    print("17. Next Greater Element I (LC#496)       37. ")
+    print("18. Find Pivot Index (LC#724)             38. ")
+    print("19. Sum Numpy Array Range (LC#303)        39. ")
+    print("20. Find All Numbers Disappeared (LC#448) 40. ")
     opc = int(input("Enter Option? "))
     match opc:
         case 1: printingSumTwo()
@@ -205,6 +229,8 @@ def menu():
         case 20: printingFindAllNumsDisappeared()
         case 21: printingMaxNumberBallons()
         case 22: printingWordPattern()
+        case 23: printingHashSet()
+        case 24: printingHashMap()
         case _: print("Error, option not recognized")
 
 menu()
