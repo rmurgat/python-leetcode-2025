@@ -23,10 +23,3 @@ class MyHashMap:
             index = self.keys.index(hash(key))
             del self.values[index]
             del self.keys[index]
-
-
-# Your MyHashMap object will be instantiated and called as such:
-# obj = MyHashMap()
-# obj.put(key,value)
-# param_2 = obj.get(key)
-# obj.remove(key)

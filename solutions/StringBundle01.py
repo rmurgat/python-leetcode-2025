@@ -23,3 +23,29 @@ class StringBundle01:
                 return False
             
         return True
+
+    def lengthOfLongestSubstring_1(self, s: str) -> int:
+        longest = 0
+        for i in range (len(s)):
+            ss = [s[i]]
+            j = i + 1
+            while j < len(s):
+                c = s[j]
+                if c in ss:
+                    break
+                else:
+                    ss.append(c)
+                j+=1
+            longest = max(len(ss), longest)
+        return longest   
+    
+    def lengthOfLongestSubstring_2(self, s: str) -> int:
+        ans = 0
+        queue = []
+        for i in range(len(s)):
+            c = s[i]
+            while c in queue:
+                queue.pop(0)
+            queue.append(c)
+            ans = max(ans, len(queue))
+        return ans

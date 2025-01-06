@@ -71,9 +71,10 @@ def printingEncodeDecode():
 
 def printingArrayExceptSelf():
     lib = ListBundle01()
-    print ("[ Array Except Self ]")
+    print ("[ 238. Array Except Self ]")
     nums = [1,2,3,4]
-    print ("Answer #1: ", lib.productExceptSelf(nums))
+    print ("Answer #1: ", lib.productExceptSelf_1(nums))
+    print ("Answer #2: ", lib.productExceptSelf_2(nums))
 
 def printingPascalTriangle():
     lib = ListBundle01()
@@ -183,17 +184,53 @@ def printingHashMap():
     myHashMap.remove(2)     # remove the mapping for 2, The map is now [[1,1]]
     myHashMap.get(2)        # return -1 (i.e., not found), The map is now [[1,1]]    
 
+def printingTwoIntSumII():
+    lib = ListBundle01()  
+    print (" [ 167. Two Integer Sum II ]")
+    print (" Answer:1 type 1",  lib.twoSumII_1([1,2,3,4],3))
+    print (" Answer:2 type 2",  lib.twoSumII_2([1,2,3,4],3))
+
+def printingLongestConsecSeq():
+    lib = ListBundle01()  
+    print (" [ 128. Longest Consecutive Sequence ]")
+    print (" Answer 1 type 1: ",  lib.longestConsecutive([2,20,4,10,3,4,5]))
+    print (" Answer 2 type 1: ",  lib.longestConsecutive([0,3,2,5,4,6,1,1]))
+    print (" Answer 3 type 1: ", lib.longestConsecutive([9,1,4,7,3,-1,0,5,8,-1,6]))
+
+def printingTrappingRainWater():
+    lib = ListBundle01()  
+    print (" [ 42. Trapping Rain Water ]")
+    print (" Answer 1 type 1: ",  lib.trap([0,2,0,3,1,0,1,3,2,1]))
+
+def printingMaxProfitSellingStock():
+    lib = ListBundle01()
+    print (" [ 121. Best Time to Buy and Sell Stock ]")
+    print ("Answer 1: ", lib.maxProfit([10,1,5,6,7,1]))
+    print ("Answer 2: ", lib.maxProfit([10,8,7,5,2]))
+    
+def printingLongestSubstrWithoutRepChars():
+    lib = StringBundle01()
+    print (" [ 3. Longest sub string Without Repeat Characters ]")
+    print ("Answer 1, type 1: ", lib.lengthOfLongestSubstring_1("zxyzxyz"))
+    print ("Answer 2, type 1: ", lib.lengthOfLongestSubstring_1("xxxx"))
+    print ("Answer 3, type 1: ", lib.lengthOfLongestSubstring_1("au"))
+    print ("-")
+    print ("Answer 1, type 2: ", lib.lengthOfLongestSubstring_2("zxyzxyz"))
+    print ("Answer 2, type 2: ", lib.lengthOfLongestSubstring_2("xxxx"))
+    print ("Answer 3, type 2: ", lib.lengthOfLongestSubstring_2("au"))
+    print ("Answer 4, type 2: ", lib.lengthOfLongestSubstring_2("pwwkew"))
+
 def menu():
     print("Menu Practice Python No. 1")
     print("1. Two Sum (LC#1)                         21. Maximum Number of Ballons (LC#1189)")
     print("2. Contains Duplicate (LC#217)            22. Word Patten (LC#290)")
     print("3. Valid Anagram (LC#242)                 23. Design HashSet (LC#705)")
     print("4. Group Anagram (LC#49)                  24. Design HashMap (LC#706)")
-    print("5. Replace Elements (LC#1299)             25. ")
-    print("6. Is Sequence (LC#392)                   26. ")
-    print("7. Length of Last Word (LC#58)            27. ")
-    print("8. Longest Common prefix (lc#14)          28. ")
-    print("9. Top K Frequent Element (LC#347)        29. ")
+    print("5. Replace Elements (LC#1299)             25. Two Integer Sum II (LC#167)")
+    print("6. Is Sequence (LC#392)                   26. Longest Consecutive Sequence (LC#128)")
+    print("7. Length of Last Word (LC#58)            27. Trapping Rain Water (LC#42)")
+    print("8. Longest Common prefix (lc#14)          28. Best Time to Buy and Sell Stock (LC#121)")
+    print("9. Top K Frequent Element (LC#347)        29. Longest substr Without Rep Chars(LC#3)")
     print("10. Encode and Decode String (neetcode)   30. ")
     print("11. Product of Array Except Self (LC#238) 31. ")
     print("12. Pascal's Triangle (LC#118)            32. ")
@@ -231,6 +268,11 @@ def menu():
         case 22: printingWordPattern()
         case 23: printingHashSet()
         case 24: printingHashMap()
+        case 25: printingTwoIntSumII()
+        case 26: printingLongestConsecSeq()
+        case 27: printingTrappingRainWater()
+        case 28: printingMaxProfitSellingStock()
+        case 29: printingLongestSubstrWithoutRepChars()
         case _: print("Error, option not recognized")
 
 menu()

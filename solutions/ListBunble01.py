@@ -125,7 +125,7 @@ class ListBundle01:
                 element += chr(i)
         return ans
 
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
+    def productExceptSelf_1(self, nums: List[int]) -> List[int]:
         ans = [0] * len(nums)
 
         left = 1
@@ -139,6 +139,21 @@ class ListBundle01:
             right = right * nums[i]
 
         return ans
+    
+    def productExceptSelf_2(self, nums: List[int]) -> List[int]:
+        ans = [0]*len(nums)
+        forw, backw = [0]*len(nums), [0]*len(nums)
+        last = 1
+        for i in range(len(nums)):
+            forw[i] = last
+            last = nums[i]*last
+        last = 1
+        for i in range(len(nums)-1,-1,-1):
+            backw[i] = last
+            last = nums[i]*last
+            ans[i] = backw[i] * forw[i]
+
+        return ans    
     
     def generatePascalTriangle(self, numRows: int) -> List[List[int]]:
         ans = [[1]]
@@ -356,3 +371,73 @@ class ListBundle01:
             if pos1!=pos2: return False
 
         return True   
+    
+    def twoSumII_1(self, numbers: List[int], target: int) -> List[int]:
+
+        for i in range(len(numbers)):
+            fix = numbers[i]
+            left = i + 1
+            right = len(numbers)-1
+            while left < right:
+                mid = math.floor( (right - left)/2 )
+                sum = fix + numbers[mid]
+                if sum == target: 
+                    return [ fix, numbers[mid] ]
+                if sum < target:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+        return []
+    
+    def twoSumII_2(self, numbers: List[int], target: int) -> List[int]:
+        left, right = 0, len(numbers)-1
+        while left < right:
+            csum = numbers[left] + numbers[right]
+            if csum == target: 
+                return [ left+1, right+1 ]
+            if csum < target:
+                left += 1
+            else:
+                right -= 1
+        return []    
+    
+    def longestConsecutive(self, nums: List[int]) -> int:
+        if len(nums)==0: return 0
+        s, maxs, last = 0,0,nums[0]
+        nums.sort()
+        for i in range(len(nums)):
+            if i>0 and nums[i]==last:
+                continue
+
+            if last+1 == nums[i]:
+                s += 1
+            else:
+                maxs = max(maxs, s)
+                s = 1
+            last = nums[i]
+        return max(maxs, s)
+    
+    def trap(self, height: List[int]) -> int:
+        maxRight = [0]*len(height)
+        ans = 0
+        maxh = 0
+        for i in range(len(height)-1,-1,-1):
+            maxRight[i] = maxh
+            maxh = max(maxh, height[i])
+        maxh = 0
+        for i in range(len(height)):
+            vol = min(maxh,maxRight[i]) - height[i]
+            if vol>0:
+                ans+=vol
+            maxh = max(maxh, height[i])
+        return ans
+    
+    def maxProfit(self, prices: List[int]) -> int:
+        ans = 0
+        minbuy = prices[0]
+        for i in range (len(prices)):
+            if prices[i]<minbuy:
+                minbuy = prices[i]
+            profit = prices[i] - minbuy
+            ans = max(ans,profit)
+        return ans 
