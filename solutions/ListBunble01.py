@@ -441,3 +441,45 @@ class ListBundle01:
             profit = prices[i] - minbuy
             ans = max(ans,profit)
         return ans 
+    
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:    
+        pass
+
+    def binarySearch(self, nums: List[int], target: int) -> int:
+        l = 0
+        r = len(nums)-1
+        while l <= r:
+            mid = math.floor( (r - l) / 2 ) + l
+            print("mid",mid)
+            if nums[mid] < target:
+                l = mid+1
+            elif nums[mid] > target:
+                r = mid-1
+            else:
+                return mid
+        return -1
+    
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack = []
+        for t in tokens:
+            match t:
+                case "+":
+                    res = (int(stack.pop()) + int(stack.pop()))
+                    stack.append(res)
+                case "-":
+                    num1 = int(stack.pop())
+                    num2 = int(stack.pop())         
+                    res = num2 - num1
+                    stack.append(res)
+                case "*":
+                    res = (int(stack.pop()) * int(stack.pop()))
+                    stack.append(res)
+                case "/":
+                    num1 = int(stack.pop())
+                    num2 = int(stack.pop())         
+                    res = num2 / num1
+                    stack.append(res)
+                case _:
+                    stack.append(t)
+        return int(res)
+

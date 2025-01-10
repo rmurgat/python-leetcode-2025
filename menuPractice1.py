@@ -2,6 +2,8 @@ from solutions.ListBunble01 import *
 from solutions.StringBundle01 import *
 from solutions.MyHashSet import *
 from solutions.MyHashMap import *
+from solutions.MinStack import *
+from solutions.MatrixBundle01 import *
 
 def printingSumTwo():
     lib = ListBundle01()
@@ -220,6 +222,108 @@ def printingLongestSubstrWithoutRepChars():
     print ("Answer 3, type 2: ", lib.lengthOfLongestSubstring_2("au"))
     print ("Answer 4, type 2: ", lib.lengthOfLongestSubstring_2("pwwkew"))
 
+def printingLongestRepCharReplacement():
+    lib = StringBundle01()
+    print (" [ 424. Longest Repeating Character Replacement ]")
+    print ("Answer 1, ", lib.characterReplacement("XYYX",2))
+    print ("Answer 2, ", lib.characterReplacement("AAABABB",1))
+
+def printingValidParentheses():
+    lib = StringBundle01()
+    print (" [ 20. Valid Parentheses ]")
+    print ("Answer 1, ", lib.isValidParentheses("[]"))
+    print ("Answer 2, ", lib.isValidParentheses("([{}])"))
+    print ("Answer 3, ", lib.isValidParentheses("[(])"))
+    print ("Answer 4, ", lib.isValidParentheses("]"))
+    print ("Answer 4, ", lib.isValidParentheses("]]"))
+
+def printingMinStack():
+    minStack = MinStack()
+    print (" [ 155. Minimum Stack ]")
+    minStack.push(1);
+    minStack.push(2);
+    minStack.push(0);
+    minStack.print()
+    print(minStack.getMin()); # return 0
+    minStack.pop();
+    print(minStack.top());    # return 2
+    print(minStack.getMin()); # return 1
+    minStack.print()
+
+    #second  ["MinStack", "push", 10, "pop", "push", 20, "top", "push", -20, "getMin"]
+    minStack = MinStack()
+    print(minStack.getMin())
+    minStack.push(10)
+    print(minStack.pop())
+    minStack.push(20)
+    print(minStack.pop())
+    minStack.push(-20)
+    minStack.print()
+    print(minStack.getMin())
+
+    #second  ["MinStack", "push", -2, "push", -2, "push", -3, "push", -3, "getMin", "pop", "getMin"]
+    minStack = MinStack()
+    minStack.push(-2)
+    minStack.push(-2)
+    minStack.push(-3)
+    minStack.push(-3)    
+    minStack.print()
+    minStack.pop()
+    print(minStack.getMin())
+
+def printingGenerateParentheses():
+    lib = StringBundle01()
+    print (" [ 22. Generate Parentheses ]")
+    print ("Answer 1, ", lib.generateParenthesis(1))
+    print ("Answer 1, ", lib.generateParenthesis(3))
+
+def printingDailyTemperatures():
+    lib = ListBundle01()
+    print (" [ 739. Daily Temperatures ]")
+    print ("Answer 1, ", lib.dailyTemperatures([30,38,30,36,35,40,28]))
+    print ("Answer 2, ", lib.dailyTemperatures([22,21,20]))
+
+def printingBinarySearch():
+    lib = ListBundle01()
+    print (" [ 704. Binary Search ]")
+    print ("Answer 1:", lib.binarySearch([-1,0,2,4,6,8],4))
+    print ("Answer 2:", lib.binarySearch([-1,0,2,4,6,8],3))
+
+def printingSearch2dMatrix():
+    lib = MatrixBundle01()
+    print (" [ 74. Search a 2D Matrix ]")
+    matrix = [[1,2,4,8],[10,11,12,13],[14,20,30,40]]
+    print ("Answer 1:", lib.searchMatrix(matrix,10))
+    print ("Answer 2:", lib.searchMatrix(matrix,15))
+
+def printingEvaluateReversePolishNotation():
+    lib = ListBundle01()
+    print (" [ 150. Evaluate Reverse Polish Notation ]")
+    tokens = ["1","2","+","3","*","4","-"]
+    print ("Answer 1:", lib.evalRPN(tokens))
+
+def printingPermutationString():
+    lib = StringBundle01()
+    print (" [ 567. Permutation in String ]")
+    print ("Answer 1, ", lib.checkInclusion_1(s1 = "abc", s2 = "lecabee"))
+    print ("Answer 1, ", lib.checkInclusion_1(s1 = "abc", s2 = "lecaabee"))
+    print ("Answer 1, type 2", lib.checkInclusion_2(s1 = "abc", s2 = "lecabee"))
+    print ("Answer 1, type 2", lib.checkInclusion_2(s1 = "abc", s2 = "lecaabee"))    
+    print ("Answer 1, type 2", lib.checkInclusion_2(s1 = "adc", s2 = "dcda"))    
+    print ("Answer 1, type 3", lib.checkInclusion_3(s1 = "abc", s2 = "lecabee"))
+    print ("Answer 1, type 3", lib.checkInclusion_3(s1 = "abc", s2 = "lecaabee"))    
+    print ("Answer 1, type 3", lib.checkInclusion_3(s1 = "adc", s2 = "dcda")) 
+
+def printingMinimumWindowSubstring():
+    lib = StringBundle01()
+    print (" [ 000. Minimum Window Substring ]")
+    print ("Answer 1, ",lib.minWindow(s = "OUZODYXAZV", t = "XYZ"))
+    print ("Answer 2, ",lib.minWindow(s = "xyz", t = "xyz"))
+    print ("Answer 3, ",lib.minWindow(s = "x", t = "xy"))
+    print ("Answer 4, ",lib.minWindow(s = "t", t = "aa"))
+    print ("Answer 5, ",lib.minWindow(s = "aa", t = "aa"))
+
+
 def menu():
     print("Menu Practice Python No. 1")
     print("1. Two Sum (LC#1)                         21. Maximum Number of Ballons (LC#1189)")
@@ -231,17 +335,18 @@ def menu():
     print("7. Length of Last Word (LC#58)            27. Trapping Rain Water (LC#42)")
     print("8. Longest Common prefix (lc#14)          28. Best Time to Buy and Sell Stock (LC#121)")
     print("9. Top K Frequent Element (LC#347)        29. Longest substr Without Rep Chars(LC#3)")
-    print("10. Encode and Decode String (neetcode)   30. ")
-    print("11. Product of Array Except Self (LC#238) 31. ")
-    print("12. Pascal's Triangle (LC#118)            32. ")
-    print("13. Unique Email Addresses (LC#929)       33. ")
-    print("14. Isomorphic String (LC#205)            34. ")
-    print("15. Can Place Flowers (LC#605)            35. ")
-    print("16. Majority Element (LC#169)             36. ")
-    print("17. Next Greater Element I (LC#496)       37. ")
-    print("18. Find Pivot Index (LC#724)             38. ")
-    print("19. Sum Numpy Array Range (LC#303)        39. ")
+    print("10. Encode and Decode String (neetcode)   30. Longest Repeat Char Replacement (LC#424)")
+    print("11. Product of Array Except Self (LC#238) 31. Valid Parentheses (LC#20)")
+    print("12. Pascal's Triangle (LC#118)            32. Minimum Stack (LC#155)")
+    print("13. Unique Email Addresses (LC#929)       33. Generate Parentheses (LC#22)")
+    print("14. Isomorphic String (LC#205)            34. Daily Temperatures (LC#739) *need review ")
+    print("15. Can Place Flowers (LC#605)            35. Binary Search (LC#704)")
+    print("16. Majority Element (LC#169)             36. Search a 2D Matrix (LC#74)")
+    print("17. Next Greater Element I (LC#496)       37. Evaluate Reverse Polish Notation (LC#150)")
+    print("18. Find Pivot Index (LC#724)             38. Permutation in String (LC#567)")
+    print("19. Sum Numpy Array Range (LC#303)        39. Minimum Window Substring *need review ")
     print("20. Find All Numbers Disappeared (LC#448) 40. ")
+
     opc = int(input("Enter Option? "))
     match opc:
         case 1: printingSumTwo()
@@ -273,6 +378,16 @@ def menu():
         case 27: printingTrappingRainWater()
         case 28: printingMaxProfitSellingStock()
         case 29: printingLongestSubstrWithoutRepChars()
+        case 30: printingLongestRepCharReplacement()
+        case 31: printingValidParentheses()
+        case 32: printingMinStack()
+        case 33: printingGenerateParentheses()
+        case 34: printingDailyTemperatures()
+        case 35: printingBinarySearch()
+        case 36: printingSearch2dMatrix()
+        case 37: printingEvaluateReversePolishNotation()
+        case 38: printingPermutationString()
+        case 39: printingMinimumWindowSubstring()
         case _: print("Error, option not recognized")
 
 menu()
