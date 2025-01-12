@@ -442,8 +442,17 @@ class ListBundle01:
             ans = max(ans,profit)
         return ans 
     
-    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:    
-        pass
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        stack = []
+        ans = [0]* len(temperatures)
+        for i in range(len(temperatures)-1,-1,-1):
+            n  = temperatures[i]
+            while stack and stack[-1][0]<=n:
+                stack.pop()
+            if stack and stack[-1][0]>n:
+                ans[i] = stack[-1][1]-i
+            stack.append([n,i])
+        return ans  
 
     def binarySearch(self, nums: List[int], target: int) -> int:
         l = 0
