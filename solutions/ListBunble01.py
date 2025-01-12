@@ -483,3 +483,29 @@ class ListBundle01:
                     stack.append(t)
         return int(res)
 
+    def monotonicStackIncreasing(self, nums):
+        stack = []
+        ans = []
+        for n in nums:
+            #if len(stack) > 0: print ("stack:", stack)
+            while stack and stack[-1] > n:
+                stack.pop()
+            stack.append(n)
+        while stack:
+            ans.insert(0, stack.pop())
+        return ans
+
+    def monotonicStackDecreasing(self, nums):
+        stack = []
+        ans = []
+        for n in nums:
+            #if len(stack) > 0: print ("stack:", stack)
+            while stack and stack[-1] < n:
+                stack.pop()
+            if stack:
+                ans.append(stack[-1])
+            else:
+                ans.append(-1)                
+            
+            stack.append(n)
+        return ans

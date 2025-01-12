@@ -144,59 +144,35 @@ class StringBundle01:
         return False
     
     def minWindow(self, s: str, t: str) -> str:
+        cnt = Counter(t)
         memo = {}
-        for c in t: 
-            memo[c] = 0
+        for c in t: memo[c]=memo.get(c,0)
         Ls = len(s)
         Rlen, Rstart = float("infinity"), 0
-        counter = 0
         left, right = 0, 0
-
+        have = 0
+        should = sum(cnt.values())
+        
         while right<Ls:
-            while counter < len(memo):  # add element to window
-                if right==Ls: break
+            while have < should:  # add element to window
                 idx = memo.get(s[right], -1) 
                 if idx >= 0: 
                     memo[s[right]] = memo[s[right]] + 1
-                    if memo[s[right]] == 1: counter = counter + 1
+                    if memo[s[right]] <= cnt[s[right]]: have = have + 1
                 right = right + 1
-
-            while counter == len(memo): # shink element from window
+                if right==Ls: break
+            
+            while have >= should: # shink element from window
                 if len(s[left:right]) < Rlen:
                     Rlen = right - left
                     Rstart = left
                 idx = memo.get(s[left], -1)
-                if idx>=0: 
+                if idx >= 0: 
                     memo[s[left]] = memo[s[left]] - 1
-                    if memo[s[left]]==0: counter = counter - 1
+                    if memo[s[left]] < cnt[s[left]]: have = have - 1
                 left = left + 1
-
+                
         return "" if Rlen==float("infinity") else s[Rstart:Rstart+Rlen]
-    
-        # 1. set hashtag with characters in t
-        # memo = { each element in t element1: 0, element2: 0 }
-        # Lt = len(t)
-        # Ls = len(s)
-        # Rlen = 0
-        # Rstart = 0
-        # counter = 0, number of elements (t) existing in s (whithout replication)
-
-        # 2. set window using two indexes
-             #left, right = 0, 0
-             # 2.1 while elements to add and counter < Len(s)
-                 # right = right + 1
-                 # increase window [right] to memo
-                 # if window[right]=1 then counter = counter + 1
-
-             # 2.2 shink elements from left while counter == Len(memo)
-                 # 2.2.1. if len(window) < minlenRes then 
-                 #           Rlen = len(window) and Rstart = left
-                 # decrease window[left] from memo
-                 # if memo[window[left]]==0 then counter = counter - 1
-
-        # 3. return s[Rstart: Rstart + Rlen]
-
-        pass
 
         
         

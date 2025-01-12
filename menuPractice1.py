@@ -320,9 +320,15 @@ def printingMinimumWindowSubstring():
     print ("Answer 1, ",lib.minWindow(s = "OUZODYXAZV", t = "XYZ"))
     print ("Answer 2, ",lib.minWindow(s = "xyz", t = "xyz"))
     print ("Answer 3, ",lib.minWindow(s = "x", t = "xy"))
-    print ("Answer 4, ",lib.minWindow(s = "t", t = "aa"))
+    print ("Answer 4, ",lib.minWindow(s = "a", t = "aa"))
     print ("Answer 5, ",lib.minWindow(s = "aa", t = "aa"))
 
+def printingMonotonicStack():
+    lib = ListBundle01()
+    print (" [ 000. Monotonic Stack (practice) ]")
+    nums = [3, 1, 4, 1, 5, 9, 2, 6]
+    print ("Monotonic increasing stack 1: ",lib.monotonicStackIncreasing(nums))
+    print ("Monotonic decreasing stack 2: ",lib.monotonicStackDecreasing(nums))
 
 def menu():
     print("Menu Practice Python No. 1")
@@ -345,7 +351,7 @@ def menu():
     print("17. Next Greater Element I (LC#496)       37. Evaluate Reverse Polish Notation (LC#150)")
     print("18. Find Pivot Index (LC#724)             38. Permutation in String (LC#567)")
     print("19. Sum Numpy Array Range (LC#303)        39. Minimum Window Substring *need review ")
-    print("20. Find All Numbers Disappeared (LC#448) 40. ")
+    print("20. Find All Numbers Disappeared (LC#448) 40. Monotonic Stack (practice)")
 
     opc = int(input("Enter Option? "))
     match opc:
@@ -388,6 +394,7 @@ def menu():
         case 37: printingEvaluateReversePolishNotation()
         case 38: printingPermutationString()
         case 39: printingMinimumWindowSubstring()
+        case 40: printingMonotonicStack()
         case _: print("Error, option not recognized")
 
 menu()
