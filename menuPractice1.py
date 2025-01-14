@@ -4,6 +4,7 @@ from solutions.MyHashSet import *
 from solutions.MyHashMap import *
 from solutions.MinStack import *
 from solutions.MatrixBundle01 import *
+from solutions.LinkedListBundle01 import *
 
 def printingSumTwo():
     lib = ListBundle01()
@@ -337,14 +338,69 @@ def printingMonotonicStack():
     print()
     print ("Monotonic increasing stack 1: ",lib.monotonicStackIncreasing(nums))
 
+def printingKokoEatingBananas():
+    lib = ListBundle01()
+    print (" [ 875. Koko Eating Bananas ]")
+    print ("Answer 1: ", lib.minEatingSpeed(piles = [1,4,3,2], h = 9))
+    print ("Answer 2: ", lib.minEatingSpeed(piles = [25,10,23,4], h = 4))
+
+def printingReversedLinkedList():
+    lib = LinkedListBundle01()
+    head = lib.createListNode([0,1,2,3])
+    head1 = lib.reverseList(head)
+    print (" [ 206. Reverse Linked List ]")
+    print ("Answer 1: ")
+    lib.printListNode(head1)
+
+def printingMergeTwoSortedList():
+    lib = LinkedListBundle01()
+    list1 = lib.createListNode([1,2,4])
+    list2 = lib.createListNode([1,3,5])
+    list3 = lib.mergeTwoLists(list1, list2)
+    print (" [ 21. Merge Two sorted List ]")
+    print ("Answer 1: ")
+    lib.printListNode(list3)
+
+def printingLinkedListCycleDetection():
+    lib = LinkedListBundle01()
+    list1 = lib.createListNode([1,2,3,4])
+    node2 = (list1.next)
+    node4 = (node2.next).next
+    node4.next = node2
+    print (" [ 141. Linked List Cycle Detection ]")
+    print ("Answer 1: ", lib.hasCycle(list1))
+
+def printingReorderLinkedList():
+    lib = LinkedListBundle01()
+    head1 = lib.createListNode([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+    head2 = lib.reorderList(head1)
+    print (" [ 143. Reorder Linked List ]")
+    print ("Answer 1: ", lib.convertListNode2List(head2))
+
+    head1 = lib.createListNode([0, 1, 2, 3])
+    head2 = lib.reorderList(head1)
+    print ("Answer 2: ", lib.convertListNode2List(head2))
+
+def printingRemoveNodeFromEndLinkedList():
+    lib = LinkedListBundle01()
+    print (" [ 19. Remove Node From End of Linked List ]")
+    head1 = lib.createListNode([1,2,3,4,5])
+    head2 = lib.removeNthFromEnd(head=head1, n=2)
+    print("Answer 1:")
+    lib.printListNode(head2)
+    head1 = lib.createListNode([5])
+    head2 = lib.removeNthFromEnd(head=head1, n=1)
+    print("Answer 2:")
+    lib.printListNode(head2)
+
 def menu():
     print("Menu Practice Python No. 1")
-    print("1. Two Sum (LC#1)                         21. Maximum Number of Ballons (LC#1189)      41. ")
-    print("2. Contains Duplicate (LC#217)            22. Word Patten (LC#290)                     42. ")
-    print("3. Valid Anagram (LC#242)                 23. Design HashSet (LC#705)                  43. ")
-    print("4. Group Anagram (LC#49)                  24. Design HashMap (LC#706)                  44. ")
-    print("5. Replace Elements (LC#1299)             25. Two Integer Sum II (LC#167)              45. ")
-    print("6. Is Sequence (LC#392)                   26. Longest Consecutive Sequence (LC#128)    46. ")
+    print("1. Two Sum (LC#1)                         21. Maximum Number of Ballons (LC#1189)      41. Koko Eating Bananas (LC#875) *see again")
+    print("2. Contains Duplicate (LC#217)            22. Word Patten (LC#290)                     42. Reverse Linked List (LC#206)")
+    print("3. Valid Anagram (LC#242)                 23. Design HashSet (LC#705)                  43. Merge Two Sorted List (LC#21)")
+    print("4. Group Anagram (LC#49)                  24. Design HashMap (LC#706)                  44. Linked List Cycle Detection (LC#141)")
+    print("5. Replace Elements (LC#1299)             25. Two Integer Sum II (LC#167)              45. Reorder Linked List (LC#143)")
+    print("6. Is Sequence (LC#392)                   26. Longest Consecutive Sequence (LC#128)    46. Remove Node From End of Linked List (LC#19)")
     print("7. Length of Last Word (LC#58)            27. Trapping Rain Water (LC#42)              47. ")
     print("8. Longest Common prefix (lc#14)          28. Best Time to Buy and Sell Stock (LC#121) 48. ")
     print("9. Top K Frequent Element (LC#347)        29. Longest substr Without Rep Chars(LC#3)   49. ")
@@ -402,6 +458,12 @@ def menu():
         case 38: printingPermutationString()
         case 39: printingMinimumWindowSubstring()
         case 40: printingMonotonicStack()
+        case 41: printingKokoEatingBananas()
+        case 42: printingReversedLinkedList()
+        case 43: printingMergeTwoSortedList()
+        case 44: printingLinkedListCycleDetection()
+        case 45: printingReorderLinkedList()
+        case 46: printingRemoveNodeFromEndLinkedList()
         case _: print("Error, option not recognized")
 
 menu()

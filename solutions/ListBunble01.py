@@ -518,3 +518,6 @@ class ListBundle01:
             
             stack.append(n)
         return ans
+    
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        pass
