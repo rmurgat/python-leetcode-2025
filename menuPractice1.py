@@ -341,8 +341,11 @@ def printingMonotonicStack():
 def printingKokoEatingBananas():
     lib = ListBundle01()
     print (" [ 875. Koko Eating Bananas ]")
-    print ("Answer 1: ", lib.minEatingSpeed(piles = [1,4,3,2], h = 9))
-    print ("Answer 2: ", lib.minEatingSpeed(piles = [25,10,23,4], h = 4))
+    print ("Answer 1, type 1: ", lib.minEatingSpeed_1(piles = [1,4,3,2], h = 9))
+    print ("Answer 2, type 1: ", lib.minEatingSpeed_1(piles = [25,10,23,4], h = 4))
+    print ("Answer 3, type 2: ", lib.minEatingSpeed_2(piles = [1,4,3,2], h = 9))
+    print ("Answer 4, type 2: ", lib.minEatingSpeed_2(piles = [25,10,23,4], h = 4))
+    print ("Answer 5, type 2: ", lib.minEatingSpeed_2(piles = [312884470], h = 312884469))
 
 def printingReversedLinkedList():
     lib = LinkedListBundle01()
@@ -393,17 +396,38 @@ def printingRemoveNodeFromEndLinkedList():
     print("Answer 2:")
     lib.printListNode(head2)
 
+def printingCopyLinkedListRandomPointer():
+    lib = LinkedListBundle01()
+    print (" [ 00. Copy Linked List with Random Pointer ]")
+
+def printingMinAtRotatedArray():
+    lib = ListBundle01()
+    print (" [ 000. Find Minimum in Rotated Sorted Array ]")
+    print ("Answer 1:", lib.findMin([3,4,5,6,1,2]))
+    print ("Answer 2:", lib.findMin([4,5,0,1,2,3]))
+    print ("Answer 3:", lib.findMin([4,5,6,7]))
+
+def printingSearchinRotatedArray():
+    lib = ListBundle01()
+    print (" [ 000. Search in Rotated Sorted Array ]")
+    print ("Answer 1:", lib.search([3,4,5,6,1,2], 1))
+    print ("Answer 2:", lib.search([4,5,0,1,2,3], 4))
+    print ("Answer 3:", lib.search([4,5,6,7],10))
+    print ("Answer 4:", lib.search([5,1,3],3))
+    
+
+
 def menu():
     print("Menu Practice Python No. 1")
-    print("1. Two Sum (LC#1)                         21. Maximum Number of Ballons (LC#1189)      41. Koko Eating Bananas (LC#875) *see again")
+    print("1. Two Sum (LC#1)                         21. Maximum Number of Ballons (LC#1189)      41. Koko Eating Bananas (LC#875)")
     print("2. Contains Duplicate (LC#217)            22. Word Patten (LC#290)                     42. Reverse Linked List (LC#206)")
     print("3. Valid Anagram (LC#242)                 23. Design HashSet (LC#705)                  43. Merge Two Sorted List (LC#21)")
     print("4. Group Anagram (LC#49)                  24. Design HashMap (LC#706)                  44. Linked List Cycle Detection (LC#141)")
     print("5. Replace Elements (LC#1299)             25. Two Integer Sum II (LC#167)              45. Reorder Linked List (LC#143)")
     print("6. Is Sequence (LC#392)                   26. Longest Consecutive Sequence (LC#128)    46. Remove Node From End of Linked List (LC#19)")
-    print("7. Length of Last Word (LC#58)            27. Trapping Rain Water (LC#42)              47. ")
-    print("8. Longest Common prefix (lc#14)          28. Best Time to Buy and Sell Stock (LC#121) 48. ")
-    print("9. Top K Frequent Element (LC#347)        29. Longest substr Without Rep Chars(LC#3)   49. ")
+    print("7. Length of Last Word (LC#58)            27. Trapping Rain Water (LC#42)              47. Copy Linked List with Random Pointer(LC#138)")
+    print("8. Longest Common prefix (lc#14)          28. Best Time to Buy and Sell Stock (LC#121) 48. Find Minimum in Rotated Sorted Array(LC#)")
+    print("9. Top K Frequent Element (LC#347)        29. Longest substr Without Rep Chars(LC#3)   49. Search in Rotated Sorted Array (LC#)")
     print("10. Encode and Decode String (neetcode)   30. Longest Repeat Char Replacement (LC#424) 50. ")
     print("11. Product of Array Except Self (LC#238) 31. Valid Parentheses (LC#20)                51. ")
     print("12. Pascal's Triangle (LC#118)            32. Minimum Stack (LC#155)                   52. ")
@@ -464,6 +488,9 @@ def menu():
         case 44: printingLinkedListCycleDetection()
         case 45: printingReorderLinkedList()
         case 46: printingRemoveNodeFromEndLinkedList()
+        case 47: printingCopyLinkedListRandomPointer()
+        case 48: printingMinAtRotatedArray()
+        case 49: printingSearchinRotatedArray()
         case _: print("Error, option not recognized")
 
 menu()

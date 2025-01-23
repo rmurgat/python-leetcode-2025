@@ -519,5 +519,62 @@ class ListBundle01:
             stack.append(n)
         return ans
     
-    def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        pass
+    def minEatingSpeed_1(self, piles: List[int], h: int) -> int:
+        k = []
+        for i in range (min(piles), max(piles)+1):
+            sum1 = 0
+            for p in piles:
+                sum1 = sum1 + math.ceil( p / i )
+            if sum1 <= h:
+                k.append (i)
+        if len(k)==0: return 0
+        return min(k)
+
+    def minEatingSpeed_2(self, piles: List[int], h: int) -> int:
+        res = []
+        l = 1
+        r = max(piles)
+        while l<=r:
+            k = math.floor( (r-l) / 2) + l
+            sum1 = 0
+            for p in piles:
+                sum1 = sum1 + math.ceil( p / k )
+            if sum1 <= h:
+                res.append(k)
+                r = k - 1
+            else:
+                l = k + 1
+        return min(res)
+
+    def findMin(self, nums: List[int]) -> int:
+        ans = float("inf")
+        l = 0
+        r = len(nums) - 1
+        while l <= r:
+            if nums[l]<nums[r]:
+                ans = min(ans, nums[l])
+                break
+            m = (r+l) // 2
+            ans = min(ans,nums[m])
+            if nums[l]<=nums[m]:    
+                l = m + 1
+            else:
+                r = m - 1
+        return ans
+    
+    def search(self, nums: List[int], target: int) -> int:
+        l,r = 0,len(nums)-1
+        while l<=r:
+            m = (r+l) // 2
+            if nums[m]==target: return m
+            if nums[l]<=nums[m]:
+                if nums[l] <= target < nums[m]:
+                    r = m - 1
+                else:
+                    l = m + 1
+            else:
+                if nums[m] < target <= nums[r]:
+                    l = m + 1
+                else:
+                    r = m - 1
+        return -1
