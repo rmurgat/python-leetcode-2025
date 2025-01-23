@@ -5,6 +5,7 @@ from solutions.MyHashMap import *
 from solutions.MinStack import *
 from solutions.MatrixBundle01 import *
 from solutions.LinkedListBundle01 import *
+from solutions.TreeBundle01 import *
 
 def printingSumTwo():
     lib = ListBundle01()
@@ -402,19 +403,66 @@ def printingCopyLinkedListRandomPointer():
 
 def printingMinAtRotatedArray():
     lib = ListBundle01()
-    print (" [ 000. Find Minimum in Rotated Sorted Array ]")
+    print (" [ 153. Find Minimum in Rotated Sorted Array ]")
     print ("Answer 1:", lib.findMin([3,4,5,6,1,2]))
     print ("Answer 2:", lib.findMin([4,5,0,1,2,3]))
     print ("Answer 3:", lib.findMin([4,5,6,7]))
 
 def printingSearchinRotatedArray():
     lib = ListBundle01()
-    print (" [ 000. Search in Rotated Sorted Array ]")
+    print (" [ 33. Search in Rotated Sorted Array ]")
     print ("Answer 1:", lib.search([3,4,5,6,1,2], 1))
     print ("Answer 2:", lib.search([4,5,0,1,2,3], 4))
     print ("Answer 3:", lib.search([4,5,6,7],10))
     print ("Answer 4:", lib.search([5,1,3],3))
     
+def printingInvertBinaryTree():
+    lib = TreeBundle01()
+    head = lib.insertInOrder([1,2,3,4,5,6,7])
+    print (" [ 226. Invert Binary Tree ]")
+    print ("original tree:")
+    lib.prettyTree(head)
+    print ("inverted tree:")
+    head1 = lib.invertTree(head)
+    lib.prettyTree(head1)
+
+def printingMaxDepthInBinaryTree():
+    lib = TreeBundle01()
+    print (" [ 111. Maximum Depth of Binary Tree ]")    
+    head = lib.insertInOrder([1,2,3,None,None,4])
+    print ("original tree:")
+    lib.prettyTree(head)
+    print ("Answer 1:", lib.maxDepth(head))
+
+def printingDiameterOfBinaryTree():
+    lib = TreeBundle01()
+    print (" [ 543. Diameter of Binary Tree ]")    
+    head = lib.insertInOrder([1,None,2,3,4,5])
+    print ("original tree:")
+    lib.prettyTree(head)
+    print ("Answer 1:", lib.diameterOfBinaryTree(head))
+
+def printingBalancedBinaryTree():
+    lib = TreeBundle01()
+    print (" [ 110. Balanced Binary Tree ]")  
+    head = lib.insertInOrder([1,2,3,None,None,4])
+    print ("Answer 1:", lib.isBalanced(head))
+    head = lib.insertInOrder([1,2,3,None,None,4,None,5])
+    print ("Answer 2:", lib.isBalanced(head))
+
+def printingSubtreeOfAnotherTree():
+    lib = TreeBundle01()
+    print (" [ 572. Subtree of Another Tree ]")
+    root = lib.insertInOrder([1,2,3,4,5])
+    subroot = lib.insertInOrder([2,4,5])
+    print ("Answer 1: ", lib.isSubtree(root,subroot))
+
+    root = lib.insertInOrder([1,2,3,4,5,None,None,6])
+    subroot = lib.insertInOrder([2,4,5])
+    print ("Answer 2: ", lib.isSubtree(root,subroot))
+
+
+
 
 
 def menu():
@@ -426,13 +474,13 @@ def menu():
     print("5. Replace Elements (LC#1299)             25. Two Integer Sum II (LC#167)              45. Reorder Linked List (LC#143)")
     print("6. Is Sequence (LC#392)                   26. Longest Consecutive Sequence (LC#128)    46. Remove Node From End of Linked List (LC#19)")
     print("7. Length of Last Word (LC#58)            27. Trapping Rain Water (LC#42)              47. Copy Linked List with Random Pointer(LC#138)")
-    print("8. Longest Common prefix (lc#14)          28. Best Time to Buy and Sell Stock (LC#121) 48. Find Minimum in Rotated Sorted Array(LC#)")
-    print("9. Top K Frequent Element (LC#347)        29. Longest substr Without Rep Chars(LC#3)   49. Search in Rotated Sorted Array (LC#)")
-    print("10. Encode and Decode String (neetcode)   30. Longest Repeat Char Replacement (LC#424) 50. ")
-    print("11. Product of Array Except Self (LC#238) 31. Valid Parentheses (LC#20)                51. ")
-    print("12. Pascal's Triangle (LC#118)            32. Minimum Stack (LC#155)                   52. ")
-    print("13. Unique Email Addresses (LC#929)       33. Generate Parentheses (LC#22)             53. ")
-    print("14. Isomorphic String (LC#205)            34. Daily Temperatures (LC#739)              54. ")
+    print("8. Longest Common prefix (lc#14)          28. Best Time to Buy and Sell Stock (LC#121) 48. Find Minimum in Rotated Sorted Array(LC#153)")
+    print("9. Top K Frequent Element (LC#347)        29. Longest substr Without Rep Chars(LC#3)   49. Search in Rotated Sorted Array (LC#33)")
+    print("10. Encode and Decode String (neetcode)   30. Longest Repeat Char Replacement (LC#424) 50. Invert Binary Tree (LC#226)")
+    print("11. Product of Array Except Self (LC#238) 31. Valid Parentheses (LC#20)                51. Maximum Depth of Binary Tree (LC#111)")
+    print("12. Pascal's Triangle (LC#118)            32. Minimum Stack (LC#155)                   52. Diameter of Binary Tree (LC#543)")
+    print("13. Unique Email Addresses (LC#929)       33. Generate Parentheses (LC#22)             53. Balanced Binary Tree (LC#110)")
+    print("14. Isomorphic String (LC#205)            34. Daily Temperatures (LC#739)              54. Subtree of Another Tree (LC#572)")
     print("15. Can Place Flowers (LC#605)            35. Binary Search (LC#704)                   55. ")
     print("16. Majority Element (LC#169)             36. Search a 2D Matrix (LC#74)               56. ")
     print("17. Next Greater Element I (LC#496)       37. Evaluate Reverse Polish Notation(LC#150) 57. ")
@@ -491,6 +539,11 @@ def menu():
         case 47: printingCopyLinkedListRandomPointer()
         case 48: printingMinAtRotatedArray()
         case 49: printingSearchinRotatedArray()
+        case 50: printingInvertBinaryTree()
+        case 51: printingMaxDepthInBinaryTree()
+        case 52: printingDiameterOfBinaryTree()
+        case 53: printingBalancedBinaryTree()
+        case 54: printingSubtreeOfAnotherTree()
         case _: print("Error, option not recognized")
 
 menu()
