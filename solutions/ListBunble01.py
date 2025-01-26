@@ -579,3 +579,39 @@ class ListBundle01:
                     r = m - 1
         return -1
     
+    def maxSlidingWindow_1(self, nums: List[int], k: int) -> List[int]:
+        ans, maxheap = [],nums[0:k]
+        l, r = 0, k
+        maxheap.sort(reverse=False)
+        L = len(nums)
+        while r < L:
+            ans.append(maxheap[-1])
+            if nums[l] in maxheap: maxheap.remove(nums[l])
+            maxheap.append(nums[r])
+            maxheap.sort(reverse=False)
+            l = l + 1
+            r = r + 1
+        ans.append(maxheap[-1])
+        return ans
+    
+    def maxSlidingWindow_2(self, nums: List[int], k: int) -> List[int]:
+        pass
+
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+
+        # 1. sort carts + speed according position
+        # 2. use formula time = (target-origin)/spped for each car position
+        # 3. from end, create a stack with times
+        #    3.1. if stack is empty, add time[i] to stack
+        #    3.2. if time[i] < stack.peak then do-nothing
+        #    3.3. if time[i] > stack.peak then add to stack
+        # 4. return stack.size
+        times = []
+        sorted1 = sorted([ [x,speed[i]] for i, x in enumerate(position)])
+        for car in sorted1:
+            car.append( (target-car[0]) / car[1] )
+        for i in range (len(sorted1)-1,-1,-1):
+            car = sorted1[i]
+            if not times: times.append(car[2])
+            if car[2]>times[-1]: times.append(car[2])
+        return len(times)

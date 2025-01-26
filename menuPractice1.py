@@ -461,9 +461,43 @@ def printingSubtreeOfAnotherTree():
     subroot = lib.insertInOrder([2,4,5])
     print ("Answer 2: ", lib.isSubtree(root,subroot))
 
+def printingValidSudoku():
+    lib = MatrixBundle01()
+    print (" [ 36. Valid Sudoku ]")
+    board = [["1","2",".",".","3",".",".",".","."],
+            ["4",".",".","5",".",".",".",".","."],
+            [".","9","8",".",".",".",".",".","3"],
+            ["5",".",".",".","6",".",".",".","4"],
+            [".",".",".","8",".","3",".",".","5"],
+            ["7",".",".",".","2",".",".",".","6"],
+            [".",".",".",".",".",".","2",".","."],
+            [".",".",".","4","1","9",".",".","8"],
+            [".",".",".",".","8",".",".","7","9"]] 
+    print ("Answer 1: ", lib.isValidSudoku(board))
+    board1 = [["1","2",".",".","3",".",".",".","."],
+            ["4",".",".","5",".",".",".",".","."],
+            [".","9","1",".",".",".",".",".","3"],
+            ["5",".",".",".","6",".",".",".","4"],
+            [".",".",".","8",".","3",".",".","5"],
+            ["7",".",".",".","2",".",".",".","6"],
+            [".",".",".",".",".",".","2",".","."],
+            [".",".",".","4","1","9",".",".","8"],
+            [".",".",".",".","8",".",".","7","9"]]
+    print ("Answer 2: ", lib.isValidSudoku(board1))    
 
+def printingSlidingWindowMax():
+    lib = ListBundle01()
+    print (" [ 239. Sliding Window Maximum ]")
+    print ("Answer 1:", lib.maxSlidingWindow_1([1,2,1,0,4,2,6], 3))
+    print ("Answer 2:", lib.maxSlidingWindow_1([1,-1], 1))
+    print ("Answer 3:", lib.maxSlidingWindow_1([4,-2], 2))
+    print ("Answer 3:", lib.maxSlidingWindow_1([1,3,1,2,0,5],3))
 
-
+def printingCarFleet():
+    lib = ListBundle01()
+    print (" [ 853. Car Fleet ]")
+    print ("Answer 1:", lib.carFleet(10, [1,4], [3,2]))
+    print ("Answer 2:", lib.carFleet(10, [4,1,0,7], [2,2,1,1]))
 
 def menu():
     print("Menu Practice Python No. 1")
@@ -481,9 +515,9 @@ def menu():
     print("12. Pascal's Triangle (LC#118)            32. Minimum Stack (LC#155)                   52. Diameter of Binary Tree (LC#543)")
     print("13. Unique Email Addresses (LC#929)       33. Generate Parentheses (LC#22)             53. Balanced Binary Tree (LC#110)")
     print("14. Isomorphic String (LC#205)            34. Daily Temperatures (LC#739)              54. Subtree of Another Tree (LC#572)")
-    print("15. Can Place Flowers (LC#605)            35. Binary Search (LC#704)                   55. ")
-    print("16. Majority Element (LC#169)             36. Search a 2D Matrix (LC#74)               56. ")
-    print("17. Next Greater Element I (LC#496)       37. Evaluate Reverse Polish Notation(LC#150) 57. ")
+    print("15. Can Place Flowers (LC#605)            35. Binary Search (LC#704)                   55. Valid Sudoku (LC#36)")
+    print("16. Majority Element (LC#169)             36. Search a 2D Matrix (LC#74)               56. Sliding Window Maximum (LC#239)")
+    print("17. Next Greater Element I (LC#496)       37. Evaluate Reverse Polish Notation(LC#150) 57. Car Fleet (LC#853)")
     print("18. Find Pivot Index (LC#724)             38. Permutation in String (LC#567)           58. ")
     print("19. Sum Numpy Array Range (LC#303)        39. Minimum Window Substring                 59. ")
     print("20. Find All Numbers Disappeared (LC#448) 40. Monotonic Stack (practice)               60. ")
@@ -544,6 +578,9 @@ def menu():
         case 52: printingDiameterOfBinaryTree()
         case 53: printingBalancedBinaryTree()
         case 54: printingSubtreeOfAnotherTree()
+        case 55: printingValidSudoku()
+        case 56: printingSlidingWindowMax()
+        case 57: printingCarFleet()
         case _: print("Error, option not recognized")
 
 menu()
